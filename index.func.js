@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const fs = require('fs');
 const readlineSync = require('readline-sync');
 // const colors = require('colors/safe');
