@@ -1,0 +1,8 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "decache": "4.5.1",
+    "express": "latest",
+    "npm": "^6.7.0"
+  }
+}
