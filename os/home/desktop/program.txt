@@ -1,0 +1,2 @@
+add 2 to reg 7
+report reg 7 to console
