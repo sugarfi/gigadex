@@ -29,7 +29,7 @@ function command(text) {
 	text = text.match(/\S+/g);
 	switch (text[0]) {
 		case 'pwd': // [pwd]
-			return pwd;
+			require('./sys/commands/pwd.js')(text);
 			break;
 		case 'ls': // [ls]
 			if (fs.existsSync(pwd)) {
