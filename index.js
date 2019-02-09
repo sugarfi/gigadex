@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+/* jshint -W027 */
 const fs = require('fs');
 const readlineSync = require('readline-sync');
 // const colors = require('colors/safe');
@@ -12,10 +14,14 @@ var pwd = __dirname + '/home';
 
 do {
 	let x = pwd.replace(/home/g, '~').substr(13);
-	if (pwd == __dirname) {	x = '/'	}
+	if (pwd == __dirname) {
+		x = '/';
+	}
 
 	var consoleText = readlineSync.question(colors.green('vandesm14@box') + ' ' + colors.blue(x + ' $ '));
-	if (consoleText == 'exit') { return '' }
+	if (consoleText == 'exit') {
+		return '';
+	}
 	console.log(command(consoleText));
 } while (true);
 
@@ -45,7 +51,9 @@ function command(text) {
 				case text[1][0] == '/': // [cd /] or [cd /*]
 					let x = pwd.match(/\/(?:\w|)+/g).slice(0, -1).join('') + text[1];
 					if (text[1][1] !== undefined) { // [cd /*]
-						if (!fs.existsSync(pwd + x)) { return error('Dir does not exist', 'cd', 'File-System') }
+						if (!fs.existsSync(pwd + x)) {
+							return error('Dir does not exist', 'cd', 'File-System');
+						}
 						pwd += x;
 					} else { // [cd /]
 						pwd = __dirname; // Root Directory
@@ -53,7 +61,9 @@ function command(text) {
 					return '';
 					break;
 				case /\w+/g.test(text[1]): // [cd *]
-					if (!fs.existsSync(pwd + '/' + text[1])) { return error('Dir does not exist', 'cd', 'File-System') }
+					if (!fs.existsSync(pwd + '/' + text[1])) {
+						return error('Dir does not exist', 'cd', 'File-System');
+					}
 					pwd += '/' + text[1];
 					return '';
 					break;
@@ -80,12 +90,14 @@ function getFiles(loc = pwd) { // Get files (for ls)
 		} else {
 			arr.push(file);
 		}
-	})
+	});
 	return arr.join('\t');
 }
 
 function getFile(filename) { // Get file (protected)
-	if (!fs.existsSync(filename)) { return error('Filw does not exist', 'getFile()', 'JS') }
+	if (!fs.existsSync(filename)) {
+		return error('Filw does not exist', 'getFile()', 'JS');
+	}
 	return fs.readFileSync(filename, 'utf8');
 }
 
