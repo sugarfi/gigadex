@@ -2,19 +2,21 @@
 /* jshint -W027 */
 const fs = require('fs');
 const readlineSync = require('readline-sync');
-// const colors = require('colors/safe');
-const colors = require('ansi-colors');
+const colors = require('colors/safe');
+// const colors = require('ansi-colors');
 // const colors = require('chalk');
 
-var __dirname = '/home/runner/os';
-var home = __dirname + '/home';
-var pwd = __dirname + '/home';
+global.__osdir = ''; // Made for replit
+global.home = __osdir + '/home';
+global.pwd = 'Hello World';
+
+console.log(__filename);
 
 // Wish https://www.fossmint.com/wp-content/uploads/2017/03/Hyper-Best-Linux-Terminal.png
 
 do {
-	let x = pwd.replace(/home/g, '~').substr(13);
-	if (pwd == __dirname) {
+	let x = pwd.replace(/home/g, '~').substr(13); // Made for replit
+	if (pwd == __osdir) {
 		x = '/';
 	}
 
@@ -29,7 +31,7 @@ function command(text) {
 	text = text.match(/\S+/g);
 	switch (text[0]) {
 		case 'pwd': // [pwd]
-			require('./sys/commands/pwd.js')(text);
+			require('./os/sys/commands/pwd.js')(text);
 			break;
 		case 'ls': // [ls]
 			if (fs.existsSync(pwd)) {
@@ -56,7 +58,7 @@ function command(text) {
 						}
 						pwd += x;
 					} else { // [cd /]
-						pwd = __dirname; // Root Directory
+						pwd = __osdir; // Root Directory
 					}
 					return '';
 					break;

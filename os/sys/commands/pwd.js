@@ -1,3 +1,3 @@
-modules.exports = (text) => {
+module.exports = (text) => {
 	return pwd;
 }

@@ -6,15 +6,15 @@ const readlineSync = require('readline-sync');
 const colors = require('ansi-colors');
 // const colors = require('chalk');
 
-var __dirname = '/home/runner/os';
-var home = __dirname + '/home';
-var pwd = __dirname + '/home';
+var __jnixdirname = '/home/runner/os';
+var home = __jnixdirname + '/home';
+var pwd = home;
 
 // Wish https://www.fossmint.com/wp-content/uploads/2017/03/Hyper-Best-Linux-Terminal.png
 
 do {
 	let x = pwd.replace(/home/g, '~').substr(13);
-	if (pwd == __dirname) {
+	if (pwd == __jnixdirname) {
 		x = '/';
 	}
 
@@ -56,7 +56,7 @@ function command(text) {
 						}
 						pwd += x;
 					} else { // [cd /]
-						pwd = __dirname; // Root Directory
+						pwd = __jnixdirname; // Root Directory
 					}
 					return '';
 					break;
