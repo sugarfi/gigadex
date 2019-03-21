@@ -76,8 +76,11 @@ function command(text) {
 		case 'mkdir': // [mkdir *]
 			return '';
 			break;
+		case 'node': // [node *]
+			return runNodeScript(text[1]);
+			break;
 		default:
-			return 'Command error with: ' + text.join(' ');
+			return error('Command error with: ' + text.join(' '));
 			break;
 	}
 }
