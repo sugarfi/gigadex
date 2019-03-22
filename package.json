@@ -7,5 +7,28 @@
     "chalk": "2.4.2",
     "dotenv": "6.1.0",
     "ansi-colors": "3.2.3"
-  }
+  },
+  "name": "jnix",
+  "description": "A command line OS written in nodejs",
+  "version": "0.0.16",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vandesm14/jnix.git"
+  },
+  "keywords": [
+    "jnix",
+    "nodejs",
+    "os",
+    "javascript"
+  ],
+  "author": "Vandesm14",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vandesm14/jnix/issues"
+  },
+  "homepage": "https://github.com/Vandesm14/jnix#readme"
 }
