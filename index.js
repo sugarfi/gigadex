@@ -10,6 +10,9 @@ var __jnixdirname = __dirname + '/os';
 var home = __jnixdirname + '/home';
 var pwd = home;
 
+console.log('JNix boot Successful!\nBooted at ' + __jnixdirname);
+console.log('(Home directory at' + home + ')');
+
 // Wish https://www.fossmint.com/wp-content/uploads/2017/03/Hyper-Best-Linux-Terminal.png
 
 do {
@@ -77,7 +80,7 @@ function command(text) {
 			return '';
 			break;
 		case 'node': // [node *]
-			return runNodeScript(text.slice(1, text.length));
+			return runNodeScript(text.slice(1, text.length).join(' '));
 			break;
 		default:
 			return colors.red('Command error with: ' + text.join(' '));
