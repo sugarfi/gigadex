@@ -17,8 +17,8 @@ console.log('(Home directory at' + home + ')');
 
 do {
 	let x = pwd.replace(home, '~');
-	if (pwd == __jnixdirname) {
-		x = '/';
+	if (pwd.match(__jnixdirname)) {
+		x = pwd.replace(__jnixdirname, '/');
 	}
 
 	var consoleText = readlineSync.question(colors.green('root@jnix') + ' ' + colors.blue(x + ' # '));
