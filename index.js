@@ -6,19 +6,19 @@ const readlineSync = require('readline-sync');
 const colors = require('ansi-colors');
 // const colors = require('chalk');
 
-var __jnixdirname = '/home/runner/os';
+var __jnixdirname = __dirname + '/os';
 var home = __jnixdirname + '/home';
 var pwd = home;
 
 // Wish https://www.fossmint.com/wp-content/uploads/2017/03/Hyper-Best-Linux-Terminal.png
 
 do {
-	let x = pwd.replace(/home/g, '~').substr(13);
+	let x = pwd.replace(home, '~');
 	if (pwd == __jnixdirname) {
 		x = '/';
 	}
 
-	var consoleText = readlineSync.question(colors.green('vandesm14@box') + ' ' + colors.blue(x + ' $ '));
+	var consoleText = readlineSync.question(colors.green('root@jnix') + ' ' + colors.blue(x + ' # '));
 	if (consoleText == 'exit') {
 		return '';
 	}
@@ -49,12 +49,14 @@ function command(text) {
 					return '';
 					break;
 				case text[1][0] == '/': // [cd /] or [cd /*]
-					let x = pwd.match(/\/(?:\w|)+/g).slice(0, -1).join('') + text[1];
+					// Makes sure path has no spaces
+					let x = pwd.match(/\/(?:\w)+/g).slice(0, -1).join('') + text[1];
 					if (text[1][1] !== undefined) { // [cd /*]
 						if (!fs.existsSync(pwd + x)) {
 							return error('Dir does not exist', 'cd', 'File-System');
 						}
-						pwd += x;
+						// pwd += x;
+						pwd = __jnixdirname + x // Relative to root
 					} else { // [cd /]
 						pwd = __jnixdirname; // Root Directory
 					}
