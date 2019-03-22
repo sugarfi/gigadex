@@ -77,12 +77,16 @@ function command(text) {
 			return '';
 			break;
 		case 'node': // [node *]
-			return runNodeScript(text[1]);
+			return runNodeScript(text.slice(1, text.length));
 			break;
 		default:
-			return error('Command error with: ' + text.join(' '));
+			return colors.red('Command error with: ' + text.join(' '));
 			break;
 	}
+}
+
+function runNodeScript(script) {
+	return eval(script);
 }
 
 function getFiles(loc = pwd) { // Get files (for ls)
@@ -121,7 +125,7 @@ function checkExist(loc) {
 	}
 }
 
-function error(err, on = '"Unknown"', type = '"Unknown"') {
+function error(err, on = 'Unknown', type = 'Unknown') {
 	return colors.red(`${type}: An error occured on "${on}":\n${err}`);
 }
 
