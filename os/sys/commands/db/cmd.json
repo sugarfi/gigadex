@@ -1,0 +1,58 @@
+[
+  {
+    "name": "pwd",
+    "description": "outputs the current directory",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "ls",
+    "description": "lists the files in [path]",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "cd",
+    "description": "Changes the current directory to [path]",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "cat",
+    "description": "Outputs the contents of file at [path]",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "mkdir",
+    "description": "Creates a directory at [path]",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "node",
+    "description": "Runs [script] as NodeJS",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "clear",
+    "description": "Clears the console",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  }
+]
