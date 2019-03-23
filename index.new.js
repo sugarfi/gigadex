@@ -10,8 +10,7 @@ __jnixdirname = __dirname + '/os';
 home = __jnixdirname + '/home';
 pwd = home;
 
-// console.log('JNix boot Successful!\nBooted at ' + __jnixdirname);
-// console.log('(Home directory at ' + home + ')');
+cmd = {};
 
 do {
 	let x = pwd;
@@ -99,6 +98,39 @@ function command(text) {
 
 function runNodeScript(script) {
 	return eval(script);
+}
+
+function runCommandFile() {
+
+}
+
+function parsePath(path) {
+	let out = {};
+	switch (true) {
+		case path == undefined: // [cmd]
+			out.path = home;
+			break;
+		case path == '..': // [cmd ..]
+			out.path = pwd.split('/').slice(0, -1).join('/');
+			break;
+		case path[0] == '/': // [cmd /] or [cmd /*]
+			if (path[1] !== undefined) { // [cmd /*]
+				if (!fs.existsSync(__jnixdirname + path)) {
+					out.err = error('Dir does not exist', 'cd', 'File-System');
+				}
+				out.path = __jnixdirname + path; // Relative to root
+			} else { // [cmd /]
+				out.path = __jnixdirname; // Root Directory
+			}
+			break;
+		case /\w+/g.test(path): // [cmd *]
+			if (!fs.existsSync(pwd + '/' + path)) {
+				return error('Dir does not exist', 'cd', 'File-System');
+			}
+			out.path = path + '/' + path;
+			break;
+	}
+	return out;
 }
 
 function getFiles(loc = pwd) { // Get files (for ls)
