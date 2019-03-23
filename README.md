@@ -2,4 +2,4 @@
 
 ## Written in Nodejs
 
-A command line OS written in nodejs
+A command line OS written in NodeJS
