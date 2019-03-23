@@ -11,7 +11,7 @@
 + ls
   + **Name** - List Files
   + **Synopsis** - `ls` `ls [path]` `ls /` `ls /[path]`
-  + **Description** - Lists the the files in `[path]`
+  + **Description** - Lists the files in `[path]`
 + cd
   + **Name** - Change Directory
   + **Synopsis** - `cd` `cd [path]` `cd /` `cd /[path]`
