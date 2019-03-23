@@ -10,25 +10,28 @@ var __jnixdirname = __dirname + '/os';
 var home = __jnixdirname + '/home';
 var pwd = home;
 
-console.log('JNix boot Successful!\nBooted at ' + __jnixdirname);
-console.log('(Home directory at' + home + ')');
-
-// Wish https://www.fossmint.com/wp-content/uploads/2017/03/Hyper-Best-Linux-Terminal.png
+// console.log('JNix boot Successful!\nBooted at ' + __jnixdirname);
+// console.log('(Home directory at ' + home + ')');
 
 do {
-	let x = pwd.replace(home, '~');
+	let x = pwd;
+	if (pwd.includes(home)) {
+		x = pwd.replace(home, '~');
+	} else {
+		x = pwd.replace(__jnixdirname, '');
+	}
 	if (pwd == __jnixdirname) {
 		x = '/';
-	}
-	if (!pwd.match(home)) {
-		x = pwd.replace(__jnixdirname, '');
 	}
 
 	var consoleText = readlineSync.question(colors.green('root@jnix') + ' ' + colors.blue(x + ' # '));
 	if (consoleText == 'exit') {
 		return '';
 	}
-	console.log(command(consoleText));
+	let out = command(consoleText);
+	if (out !== undefined) {
+		console.log(out);
+	}
 } while (true);
 
 function command(text) {
@@ -44,7 +47,7 @@ function command(text) {
 				return error('File/Dir does not exist', 'ls', 'File-System');
 			}
 			break;
-		case 'cd':
+		case 'cd': // [cd]
 			switch (true) {
 				case text[1] == undefined: // [cd]
 					pwd = home;
@@ -79,11 +82,14 @@ function command(text) {
 		case 'cat': // [cat]
 			return getFile(pwd + '/' + text[1]);
 			break;
-		case 'mkdir': // [mkdir *]
+		case 'mkdir': // [mkdir]
 			return '';
 			break;
-		case 'node': // [node *]
+		case 'node': // [node]
 			return runNodeScript(text.slice(1, text.length).join(' '));
+			break;
+		case 'clear': // [clear]
+			return console.clear();
 			break;
 		default:
 			return colors.red('Command error with: ' + text.join(' '));
