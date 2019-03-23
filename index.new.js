@@ -92,7 +92,6 @@ function command(text) {
 			break;
 		default:
 			return colors.red('Command error with: ' + text.join(' '));
-			break;
 	}
 }
 
