@@ -1,15 +1,7 @@
 [
   {
-    "name": "pwd",
-    "description": "outputs the current directory",
-    "author": "vandesm14",
-    "version": "1.0.0",
-    "path": "/",
-    "relPath": "/"
-  },
-  {
-    "name": "ls",
-    "description": "lists the files in [path]",
+    "name": "cat",
+    "description": "Outputs the contents of file at [path]",
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
@@ -24,8 +16,32 @@
     "relPath": "/"
   },
   {
-    "name": "cat",
-    "description": "Outputs the contents of file at [path]",
+    "name": "clear",
+    "description": "Clears the console",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "cp",
+    "description": "copies [path] to [pathTo]",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "edit",
+    "description": "Launches text editor",
+    "author": "vandesm14",
+    "version": "0.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "ls",
+    "description": "lists the files in [path]",
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
@@ -40,6 +56,14 @@
     "relPath": "/"
   },
   {
+    "name": "mv",
+    "description": "renames/moves [path] to [pathTo]",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
     "name": "node",
     "description": "Runs [script] as NodeJS",
     "author": "vandesm14",
@@ -48,8 +72,16 @@
     "relPath": "/"
   },
   {
-    "name": "clear",
-    "description": "Clears the console",
+    "name": "pwd",
+    "description": "outputs the current directory",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "relPath": "/"
+  },
+  {
+    "name": "rm",
+    "description": "removes file/dir at [path]",
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
