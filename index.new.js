@@ -29,7 +29,7 @@ do {
 		return '';
 	}
 	let out = command(consoleText);
-	if (out !== undefined || out !== '') {
+	if (out !== undefined && out !== '') {
 		console.log(out);
 	}
 } while (true);
@@ -42,14 +42,15 @@ function command(text) {
 			return pwd;
 			break;
 		case 'ls': // [ls]
-			if (fs.existsSync(pwd)) {
+			hold = parsePath(text[1], 'dir');
+			if (!hold.err) {
 				return getFiles();
 			} else {
-				return error('File/Path does not exist', 'ls', 'File-System');
+				return hold.err;
 			}
 			break;
 		case 'cd': // [cd]
-			hold = parsePath(text[1], true);
+			hold = parsePath(text[1], 'dir');
 			if (!hold.err) {
 				pwd = hold.path;
 				return '';
@@ -58,9 +59,24 @@ function command(text) {
 			}
 			break;
 		case 'cat': // [cat]
-			return readFile(pwd + '/' + text[1]);
+			// return readFile(pwd + '/' + text[1]);
+			hold = parsePath(text[1], 'file');
+			if (!hold.err) {
+				return readFile(hold.path);
+			} else {
+				return hold.err;
+			}
 			break;
 		case 'mkdir': // [mkdir]
+			return '';
+			break;
+		case 'mv':
+			return '';
+			break;
+		case 'cp':
+			return '';
+			break;
+		case 'rm':
 			return '';
 			break;
 		case 'node': // [node]
@@ -82,7 +98,7 @@ function runCommandFile() {
 
 }
 
-function parsePath(path, limitDir = false) {
+function parsePath(path, limit = 'none') {
 	let ret = {
 		path: '',
 		err: false
@@ -108,11 +124,11 @@ function parsePath(path, limitDir = false) {
 			if (!fs.existsSync(pwd + '/' + path)) {
 				ret.err = error('Path does not exist', 'parsePath', 'File-System');
 			}
-			ret.path = path + '/' + path;
+			ret.path = pwd + '/' + path;
 			break;
 	}
-	if (typeofPath(ret.path)) {
-
+	if (limit !== 'none' && typeofPath(ret.path).path !== limit && !ret.err) {
+		ret.err = error('Path is not a ' + limit, 'parsePath', 'File-System');
 	}
 	return ret;
 }
@@ -130,9 +146,6 @@ function getFiles(loc = pwd) { // Get files (for [ls])
 }
 
 function readFile(filename) { // Get file contents (for [cat])
-	if (!fs.existsSync(filename)) {
-		return error('File does not exist', 'getFile()', 'JS');
-	}
 	return fs.readFileSync(filename, 'utf8');
 }
 
@@ -152,16 +165,6 @@ function typeofPath(path = pwd) {
 	}
 	return ret;
 }
-
-// $Note: This function is not needed
-// function pathExist(path) {
-// 	if (fs.existsSync(path)) {
-// 		return true;
-// 	} else {
-// 		// console.log(error('File/Path does not exist!', 'checkExist()', 'JS'));
-// 		return false;
-// 	}
-// }
 
 function error(err, on = 'Unknown', type = 'Unknown') {
 	return colors.red(`${type}: An error occured on "${on}":\n${err}`);
