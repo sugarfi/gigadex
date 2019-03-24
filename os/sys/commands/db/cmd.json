@@ -5,7 +5,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "cd",
@@ -13,7 +13,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "clear",
@@ -21,7 +21,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "cp",
@@ -29,7 +29,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "edit",
@@ -37,7 +37,7 @@
     "author": "vandesm14",
     "version": "0.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "ls",
@@ -45,7 +45,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "mkdir",
@@ -53,7 +53,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "mv",
@@ -61,7 +61,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "node",
@@ -69,7 +69,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "pwd",
@@ -77,7 +77,7 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
   },
   {
     "name": "rm",
@@ -85,6 +85,14 @@
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
-    "relPath": "/"
+    "pkg": "/"
+  },
+  {
+    "name": "touch",
+    "description": "creates a file at [path]",
+    "author": "vandesm14",
+    "version": "1.0.0",
+    "path": "/",
+    "pkg": "/"
   }
 ]
