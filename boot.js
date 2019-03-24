@@ -1,5 +1,6 @@
 /* jshint esversion: 6 */
-/* jshint -W027 */
+/* jshint -W027  */
+/* jshint -W061 */
 const fs = require('fs');
 const readlineSync = require('readline-sync');
 // const colors = require('colors/safe');
@@ -9,3 +10,5 @@ const colors = require('ansi-colors');
 __jnixdirname = __dirname + '/os';
 home = __jnixdirname + '/home';
 pwd = home;
+
+cmd = {};

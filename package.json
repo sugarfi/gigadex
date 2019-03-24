@@ -10,7 +10,7 @@
   },
   "name": "jnix",
   "description": "A command line OS written in nodejs",
-  "version": "0.0.16",
+  "version": "0.0.1",
   "devDependencies": {},
   "scripts": {
 		"start": "node index.new.js"
