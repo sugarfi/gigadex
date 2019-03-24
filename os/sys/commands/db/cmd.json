@@ -25,7 +25,7 @@
   },
   {
     "name": "cp",
-    "description": "copies [path] to [pathTo]",
+    "description": "copies [src] to [dest]",
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
@@ -57,7 +57,7 @@
   },
   {
     "name": "mv",
-    "description": "renames/moves [path] to [pathTo]",
+    "description": "renames/moves [src] to [dest]",
     "author": "vandesm14",
     "version": "1.0.0",
     "path": "/",
