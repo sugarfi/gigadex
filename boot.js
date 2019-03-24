@@ -11,4 +11,12 @@ __jnixdirname = __dirname + '/os';
 home = __jnixdirname + '/home';
 pwd = home;
 
+cmdDB = {};
 cmd = {};
+
+function collectCommands() {
+	cmdDB = JSON.parse(fs.readFileSync('os/sys/cmd/db/cmd.json'));
+	for (i = 0; i < cmdDB.length; i++) {
+		cmd[cmdDB.name] = fs.readFileSync(__jnixdirname + cmdDB.path + '/' + cmdDB.name);
+	}
+}
