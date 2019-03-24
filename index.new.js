@@ -44,7 +44,7 @@ function command(text) {
 		case 'ls': // [ls]
 			hold = parsePath(text[1], 'dir');
 			if (!hold.err) {
-				return getFiles();
+				return getFiles(hold.path);
 			} else {
 				return hold.err;
 			}
@@ -68,15 +68,38 @@ function command(text) {
 			}
 			break;
 		case 'mkdir': // [mkdir]
-			return '';
+			hold = parsePath(text[1], 'none', false);
+			if (!hold.err) {
+				return fs.mkdirSync(hold.path);
+			} else {
+				return hold.err;
+			}
 			break;
-		case 'mv':
-			return '';
+		case 'mv': // [mv]
+			holdA = parsePath(text[1], 'none');
+			holdB = parsePath(text[2], 'none', false);
+			if (!holdA.err && !holdB.err) {
+				return fs.renameSync(holdA.path, holdB.path);
+			} else {
+				return holdA.err;
+			}
 			break;
-		case 'cp':
-			return '';
+		case 'cp': // [cp]
+			holdA = parsePath(text[1], 'none');
+			holdB = parsePath(text[2], 'none', false);
+			if (!holdA.err && !holdB.err) {
+				return fs.copyFileSync(holdA.path, holdB.path);
+			} else {
+				return holdA.err;
+			}
 			break;
-		case 'rm':
+		case 'rm': // [rm]
+			hold = parsePath(text[1]);
+			if (!hold.err) {
+				return fs.unlinkSync(hold.path);
+			} else {
+				return hold.err;
+			}
 			return '';
 			break;
 		case 'node': // [node]
@@ -98,7 +121,7 @@ function runCommandFile() {
 
 }
 
-function parsePath(path, limit = 'none') {
+function parsePath(path, limit = 'none', exist = true) {
 	let ret = {
 		path: '',
 		err: false
@@ -112,7 +135,7 @@ function parsePath(path, limit = 'none') {
 			break;
 		case path[0] == '/': // [cmd /] or [cmd /*]
 			if (path[1] !== undefined) { // [cmd /*]
-				if (!fs.existsSync(__jnixdirname + path)) {
+				if (!fs.existsSync(__jnixdirname + path) && exist) {
 					ret.err = error('Path does not exist', 'parsePath', 'File-System');
 				}
 				ret.path = __jnixdirname + path; // Relative to root
@@ -121,7 +144,7 @@ function parsePath(path, limit = 'none') {
 			}
 			break;
 		case /\w+/g.test(path): // [cmd *]
-			if (!fs.existsSync(pwd + '/' + path)) {
+			if (!fs.existsSync(pwd + '/' + path) && exist) {
 				ret.err = error('Path does not exist', 'parsePath', 'File-System');
 			}
 			ret.path = pwd + '/' + path;
