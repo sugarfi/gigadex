@@ -84,6 +84,7 @@ module.exports = {
 	},
 
 	error: (err, on = 'Unknown', type = 'Gigadex') => {
-		return colors.red(`${type}: An error occured on "${on}":\n${err}`);
+		// return colors.red(`${type}: An error occured on "${on}":\n${err}`);
+		return colors.red(`${text[0]}: An error occured on "${text[1]}":\n${err}`);
 	}
 };
