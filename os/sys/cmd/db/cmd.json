@@ -35,7 +35,7 @@
     "name": "edit",
     "description": "Launches text editor",
     "author": "vandesm14",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "path": "/sys/cmd",
     "pkg": "/"
   },
