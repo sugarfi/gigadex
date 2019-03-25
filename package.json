@@ -1,5 +1,5 @@
 {
-  "main": "index.js",
+  "main": "boot.js",
   "dependencies": {
     "ansi-colors": "3.2.3",
     "chalk": "2.4.2",
@@ -8,8 +8,8 @@
     "md5-file": "4.0.0",
     "readline-sync": "1.4.9"
   },
-  "name": "jnix",
-  "description": "A command line OS written in nodejs",
+  "name": "gigadex",
+  "description": "A command line OS written in NodeJS",
   "version": "0.0.1",
   "devDependencies": {},
   "scripts": {
@@ -20,10 +20,10 @@
     "url": "git+https://github.com/Vandesm14/jnix.git"
   },
   "keywords": [
-    "jnix",
+    "gigadex",
     "nodejs",
     "os",
-    "javascript"
+    "jnix"
   ],
   "author": "Vandesm14",
   "license": "ISC",
