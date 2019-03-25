@@ -13,7 +13,7 @@ pwd = home;
 text = '';
 
 func = require('./func.js');
-cmd = require(__jnixdirname + '/sys/cmd/./root.js');
+cmd = require('./os/sys/cmd/root.js');
 
 do {
 	let x = pwd;

@@ -32,4 +32,4 @@
 ## Notes
 
 + Motd
-  + Add custome syntax or code to allow easy changing to the message
+  + Add custom syntax or code to allow easy changing to the message

@@ -8,6 +8,10 @@ const md5File = require('md5-file');
 const colors = require('ansi-colors');
 // const colors = require('chalk');
 
+console.log = function (d) {
+  process.stdout.write(d + '\n');
+};
+
 __jnixdirname = __dirname + '/os';
 home = __jnixdirname + '/home';
 pwd = home;
