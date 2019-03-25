@@ -3,6 +3,7 @@
 /* jshint -W061 */
 const fs = require('fs');
 const readlineSync = require('readline-sync');
+const md5File = require('md5-file');
 // const colors = require('colors/safe');
 const colors = require('ansi-colors');
 // const colors = require('chalk');
@@ -17,6 +18,8 @@ cmd = {};
 function collectCommands() {
 	cmdDB = JSON.parse(fs.readFileSync('os/sys/cmd/db/cmd.json'));
 	for (i = 0; i < cmdDB.length; i++) {
-		cmd[cmdDB.name] = fs.readFileSync(__jnixdirname + cmdDB.path + '/' + cmdDB.name);
+		cmd[cmdDB.name] = fs.readFileSync(__jnixdirname + cmdDB.path);
 	}
 }
+
+require('./index.func.js');

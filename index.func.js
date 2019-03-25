@@ -41,6 +41,6 @@ function command(ftext) {
 	if (Object.keys(cmd).includes(text[0])) {
 		return cmd[text[0]]();
 	} else {
-		func.error('Command not found', text[0], 'Gigadex');
+		return func.error('Command not found', text[0], 'Gigadex');
 	}
 }

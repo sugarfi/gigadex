@@ -82,6 +82,15 @@ module.exports = {
 		let hold;
 		return console.clear();
 	},
+	touch: () => { // [touch]
+		let hold;
+		hold = func.parsePath(text[1], 'none', false);
+		if (!hold.err) {
+			return fs.appendFileSync(hold.path, '', 'utf8');
+		} else {
+			return hold.err;
+		}
+	},
 	default: () => {
 		return colors.red
 		let hold;('Command error with: ' + text.join(' '));

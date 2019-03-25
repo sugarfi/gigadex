@@ -4,7 +4,7 @@
     "description": "Outputs the contents of file at [path]",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -12,7 +12,7 @@
     "description": "Changes the current directory to [path]",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -20,7 +20,7 @@
     "description": "Clears the console",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -28,7 +28,7 @@
     "description": "copies [src] to [dest]",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -36,7 +36,7 @@
     "description": "Launches text editor",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -44,7 +44,7 @@
     "description": "lists the files in [path]",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -52,7 +52,7 @@
     "description": "Creates a directory at [path]",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -60,7 +60,7 @@
     "description": "renames/moves [src] to [dest]",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -68,7 +68,7 @@
     "description": "Runs [script] as NodeJS",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -76,7 +76,7 @@
     "description": "outputs the current directory",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -84,7 +84,7 @@
     "description": "removes file/dir at [path]",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   },
   {
@@ -92,7 +92,7 @@
     "description": "creates a file at [path]",
     "author": "vandesm14",
     "version": "1.0.0",
-    "path": "root.js",
+    "path": "/sys/cmd/root.js",
     "pkg": "/"
   }
 ]
