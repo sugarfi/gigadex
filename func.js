@@ -54,7 +54,7 @@ module.exports = {
 		var arr = [];
 		fs.readdirSync(loc).forEach(file => {
 			if (fs.lstatSync(loc + '/' + file).isDirectory()) { // Color blue if dir
-				arr.push(colors.blue(file));
+				arr.push(colors.blueBright(file));
 			} else {
 				arr.push(file);
 			}
@@ -85,6 +85,6 @@ module.exports = {
 
 	error: (err, on = 'Unknown', type = 'Gigadex') => {
 		// return colors.red(`${type}: An error occured on "${on}":\n${err}`);
-		return colors.red(`${text[0]}: An error occured on "${text[1]}":\n${err}`);
+		return colors.redBright(`${text[0]}: An error occured on "${text[1]}":\n${err}`);
 	}
 };

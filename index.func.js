@@ -26,7 +26,7 @@ do {
 		x = '/';
 	}
 
-	var consoleText = readlineSync.question(colors.green('root@jnix') + ' ' + colors.blue(x + ' # '));
+	var consoleText = readlineSync.question(colors.redBright('install@gigadex') + ' ' + colors.yellowBright(x) + colors.whiteBright(' # '));
 	if (consoleText == 'exit') {
 		return '';
 	}

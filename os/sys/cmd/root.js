@@ -92,7 +92,6 @@ module.exports = {
 		}
 	},
 	default: () => {
-		return colors.red
-		let hold;('Command error with: ' + text.join(' '));
+		return colors.redBright('Command error with: ' + text.join(' '));
 	}
 };
