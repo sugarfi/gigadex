@@ -41,7 +41,8 @@ a, a:visited {
 	background-color: #2e2e2e;
 	display: flex;
 	flex-direction: row;
-	padding: 6px 10px;
+	/* justify-content: space-between; */
+	padding: 6px 0;
 	margin-bottom: 0;
 }
 
@@ -56,6 +57,14 @@ a, a:visited {
 
 .taskbar-item:hover {
 	background-color: #7a7a7a;
+}
+
+.taskbar-item.taskbar-home {
+	/* margin-right: auto; */
+}
+
+.taskbar-item.taskbar-settings {
+	margin-left: auto;
 }
 
 .taskbar-item > a {

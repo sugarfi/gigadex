@@ -7,8 +7,7 @@
     "body-parser": "^1.19.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
-    "open": "^7.0.0",
-    "opn": "^6.0.0"
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {},
   "scripts": {
