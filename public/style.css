@@ -7,7 +7,7 @@ html, body, .site, .app {
 
 body {
 	background-color: white;
-	background-image: url('assets/images/background.png');
+	background-image: url('assets/images/desktop.png');
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -28,6 +28,72 @@ a, a:visited {
 .site, .app {
 	display: flex;
 	flex-direction: column;
+}
+
+/* ----------Window---------- */
+.window {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.taskbar {
+	background-color: #2e2e2e;
+	display: flex;
+	flex-direction: row;
+	padding: 6px 10px;
+	margin-bottom: 0;
+}
+
+.taskbar-item {
+	padding: 4px;
+	transition: 100ms ease-out;
+	box-sizing: border-box;
+	border-radius: 6px;
+	margin: 0 4px;
+	background-color: #464646;
+}
+
+.taskbar-item:hover {
+	background-color: #7a7a7a;
+}
+
+.taskbar-item > a {
+	display: flex;
+	flex-direction: row;
+}
+
+.taskbar-item > a > * {
+	margin: auto 5px;
+}
+
+.taskbar-item img {
+	margin: auto;
+	width: 3vh;
+	text-align: center;
+	font-size: 30px;
+	filter: invert(1);
+}
+
+.taskbar-item span {
+	color: white;
+	text-decoration: none;
+}
+
+/* ----------List---------- */
+.list {
+	display: flex;
+	flex-direction: column;
+	margin: auto auto;
+	padding: 10px 20px;
+	border-radius: 10px;
+	background-color: #ffffff;
+	text-align: center;
+}
+
+.list-item {
+	margin: 0 auto;
+	padding: 4px;
 }
 
 /* ----------Login---------- */
