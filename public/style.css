@@ -149,3 +149,20 @@ input[type='submit'] {
 	font-size: 120%;
 	cursor: pointer;
 }
+
+/* ----------Notepad---------- */
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons button{
+    border: 1px solid;
+    padding: 5px 5px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+.buttons button:hover{
+    background-color: whitesmoke;
+}
