@@ -6,11 +6,11 @@ html, body, .site, .app {
 }
 
 body {
-	background-color: white;
-	background-image: url('assets/images/desktop.png');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
+	background: radial-gradient(circle, rgb(225, 225, 225) 0%, rgb(148, 148, 148) 100%);
+	/* background-image: url('assets/images/desktop.png'); */
+	/* background-position: center; */
+	/* background-size: cover; */
+	/* background-repeat: no-repeat; */
 	color: black;
 	font-family: Calibri, sans-serif;
 }
@@ -38,22 +38,23 @@ a, a:visited {
 }
 
 .taskbar {
-	background-color: #2e2e2e;
 	display: flex;
 	flex-direction: row;
-	/* justify-content: space-between; */
-	padding: 6px 0;
 	margin-bottom: 0;
+/* justify-content: space-between; */
+	padding: 6px 0;
+	background-color: #2e2e2e;
+
 	user-select: none;
 }
 
 .taskbar-item {
-	padding: 4px;
-	transition: 100ms ease-out;
 	box-sizing: border-box;
-	border-radius: 6px;
 	margin: 0 4px;
+	padding: 4px;
+	border-radius: 6px;
 	background-color: #464646;
+	transition: 100ms ease-out;
 }
 
 .taskbar-item:hover {
@@ -153,17 +154,17 @@ input[type='submit'] {
 
 /* ----------Notepad---------- */
 .buttons {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
-.buttons button{
-    border: 1px solid;
-    padding: 5px 5px;
-    background-color: white;
-    cursor: pointer;
-    outline: none;
+.buttons button {
+	padding: 5px 5px;
+	outline: none;
+	border: 1px solid;
+	background-color: white;
+	cursor: pointer;
 }
-.buttons button:hover{
-    background-color: whitesmoke;
+.buttons button:hover {
+	background-color: whitesmoke;
 }
