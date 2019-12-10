@@ -14,6 +14,7 @@ app.use(['/app/:q','/default/:q'], express.static('public'));
 app.set('view-engine', 'ejs');
 
 var apps = fs.readdirSync('modules');
+// apps = [...apps, ...fs.readdirSync('modules/default')];
 apps = apps.filter(el => el.match('.html'));
 apps = apps.map(el => el.replace('.html', ''));
 
@@ -26,8 +27,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-	let file = fs.readFileSync('modules/default/home.html');
-	res.render(__dirname + '/public/includes/templates/window.ejs', { content: file, apps });
+	res.redirect('/default/home');
 });
 
 app.get('/new', (req, res) => {
