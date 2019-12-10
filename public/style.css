@@ -41,6 +41,7 @@ a, a:visited {
 	display: flex;
 	flex-direction: row;
 	margin-bottom: 0;
+
 /* justify-content: space-between; */
 	padding: 6px 0;
 	background-color: #2e2e2e;
@@ -168,15 +169,15 @@ input[type='submit'] {
 .buttons button:hover {
 	background-color: whitesmoke;
 }
-.buttons button:hover{
-    background-color: whitesmoke;
+.buttons button:hover {
+	background-color: whitesmoke;
 }
 .main textarea {
-    width: 900px;
-    height: 500px;
+	width: 900px;
+	height: 500px;
 }
 #lastsaved {
-    position: absolute;
-    bottom: 86%;
-    right: 63%;
+	position: absolute;
+	right: 63%;
+	bottom: 86%;
 }
