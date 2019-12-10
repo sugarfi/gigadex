@@ -4,6 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 
+const os = require('./os.js');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -13,12 +15,9 @@ app.use(express.static('public'));
 app.use(['/app/:q','/default/:q'], express.static('public'));
 app.set('view-engine', 'ejs');
 
-var apps = fs.readdirSync('modules');
-// apps = [...apps, ...fs.readdirSync('modules/default')];
-apps = apps.filter(el => el.match('.html'));
-apps = apps.map(el => el.replace('.html', ''));
+var apps = os.apps.names();
 
-app.use((req, res, next) => {
+app.use((req, res, next) => { // defaults for ejs code
 	res.locals.title = null;
 	res.locals.content = null;
 	res.locals.message = null;
@@ -30,7 +29,7 @@ app.get('/', (req, res) => {
 	res.redirect('/default/home');
 });
 
-app.get('/new', (req, res) => {
+app.get('/new', (req, res) => { // 
 	ejs.renderFile(__dirname + '/public/views/new.ejs', { apps }, (err, str) => {
 		res.render(__dirname + '/public/includes/templates/window.ejs', { content: str });
 	});
