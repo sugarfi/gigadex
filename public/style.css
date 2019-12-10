@@ -44,6 +44,7 @@ a, a:visited {
 	/* justify-content: space-between; */
 	padding: 6px 0;
 	margin-bottom: 0;
+	user-select: none;
 }
 
 .taskbar-item {
