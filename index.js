@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-	let file = fs.readFileSync('public/module/default/home.html');
+	let file = fs.readFileSync('modules/default/home.html');
 	res.render(__dirname + '/public/includes/templates/window.ejs', { content: file, apps });
 });
 
