@@ -166,3 +166,12 @@ input[type='submit'] {
 .buttons button:hover{
     background-color: whitesmoke;
 }
+.main textarea {
+    width: 900px;
+    height: 500px;
+}
+#lastsaved {
+    position: absolute;
+    bottom: 86%;
+    right: 63%;
+}
