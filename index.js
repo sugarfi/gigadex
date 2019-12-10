@@ -1,5 +1,4 @@
 const fs = require('fs');
-const socketio = require('socket.io');
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -7,6 +6,8 @@ const ejs = require('ejs');
 const os = require('./os.js');
 
 const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io').listen(http);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,6 +17,7 @@ app.use(['/app/:q','/default/:q'], express.static('public'));
 app.set('view-engine', 'ejs');
 
 var apps = os.apps.names();
+var tabs = new os.TabList();
 
 app.use((req, res, next) => { // defaults for ejs code
 	res.locals.title = null;
@@ -49,4 +51,33 @@ app.get('/default/:q', (req, res) => {
 	res.render(__dirname + '/public/includes/templates/window.ejs', { content: file, title: q });
 });
 
-app.listen(3000, () => console.log('server started'));
+http.listen(3000, () => console.log('server started'));
+
+io.engine.generateId = (req) => {
+	return randHex(6);
+};
+
+io.on('connection', (socket) => {
+	socket.on('register', (data) => {
+		data = data.split('/')[2];
+		tabs.push(new os.Tab(socket.id, data), data);
+	});
+	socket.on('disconnect', (data) => {
+		if (socket.id) {
+			tabs.remove(socket.id);
+		}
+	});
+});
+
+function randHex(len) {
+	var letters = '0123456789abcdef';
+	var color = '';
+	for (var i = 0; i < len; i++) {
+		color += letters[Math.floor(Math.random() * 16)];
+	}
+	return color;
+}
+
+function copy(arr) {
+	return JSON.parse(JSON.stringify(arr));
+}
