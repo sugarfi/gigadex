@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 	res.redirect('/default/home');
 });
 
-app.get('/new', (req, res) => { // 
+app.get('/new', (req, res) => {
 	ejs.renderFile(__dirname + '/public/views/new.ejs', { apps }, (err, str) => {
 		res.render(__dirname + '/public/includes/templates/window.ejs', { content: str });
 	});
