@@ -64,10 +64,15 @@ a, a:visited {
 
 .taskbar-item.taskbar-home {
 	/* margin-right: auto; */
+	order: -1;
 }
 
 .taskbar-item.taskbar-settings {
 	margin-left: auto;
+}
+
+.taskbar-item.taskbar-home span, .taskbar-item.taskbar-settings span {
+	display: none;
 }
 
 .taskbar-item > a {
