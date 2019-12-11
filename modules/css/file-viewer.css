@@ -7,7 +7,8 @@ html, body, .site, .app {
 body {
 	background-color: #424242;
 	color: white;
-	font-family: Calibri, sans-serif;}
+    font-family: Calibri, sans-serif;}
+textarea {display: none;}
 div, h1, p {
 	margin: 0;
 	padding: 0;}
