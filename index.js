@@ -28,7 +28,7 @@ app.use((req, res, next) => { // defaults for ejs code
 })
 
 app.get('/', (req, res) => {
-	res.redirect('/apps/home');
+	res.redirect('/app/home');
 });
 
 app.get('/icon/:q', (req, res) => {
