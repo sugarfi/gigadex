@@ -1,60 +1,62 @@
-<html><head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Browser Notebook</title>
-	<link href="style.css" rel="stylesheet" type="text/css">
-</head>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Browser Notebook</title>
+		<link href="css/file-viewer.css" rel="stylesheet" type="text/css">
+	</head>
 
-<body style="cursor: initial;">
-	<div class="app">
-		<div class="topbar">
-			<div class="titlebar">
-				<div class="title" style="visibility: hidden;">
-					Title:
-					<input type="text" id="name" autocomplete="off">
+	<body style="cursor: initial;">
+		<div class="app">
+			<div class="topbar">
+				<div class="titlebar">
+					<div class="title" style="visibility: hidden;">
+						Title:
+						<input type="text" id="name" autocomplete="off">
+					</div>
+				</div>
+				<div class="toolbar">
+					<div class="btngroup">
+						<button class="btn filebtn" id="new">New</button>
+						<button class="btn filebtn" id="open">Open</button>
+					</div>
 				</div>
 			</div>
-			<div class="toolbar">
-				<div class="btngroup">
-					<button class="btn filebtn" id="new">New</button>
-					<button class="btn filebtn" id="open">Open</button>
-				</div>
+			<div class="editor">
+				<div class="fileList">
+					<div class="list-header">
+						<p class="file-name">Name</p>
+						<p>Size</p>
+						<p>Created</p>
+						<p>Modified</p>
+						<p></p>
+					</div>
+					<div class="list-items">
+			<div class="file">
+				<p class="file-name">Untitled</p>
+				<p class="file-size">0B</p>
+				<p class="file-datec">12/9/2019 10:18:53 PM</p>
+				<p class="file-datem">12/9/2019 10:18:53 PM</p>
+				<p class="file-id">smh0wecvgl</p>
+				<button class="file-delete">Delete</button>
 			</div>
 		</div>
-		<div class="editor">
-			<div class="fileList">
-				<div class="list-header">
-					<p class="file-name">Name</p>
-					<p>Size</p>
-					<p>Created</p>
-					<p>Modified</p>
-					<p></p>
 				</div>
-				<div class="list-items">
-		<div class="file">
-			<p class="file-name">Untitled</p>
-			<p class="file-size">0B</p>
-			<p class="file-datec">12/9/2019 10:18:53 PM</p>
-			<p class="file-datem">12/9/2019 10:18:53 PM</p>
-			<p class="file-id">smh0wecvgl</p>
-			<button class="file-delete">Delete</button>
-		</div>
-	</div>
+				<textarea class="document" id="document" cols="104" style="display: none;"></textarea>
 			</div>
-			<textarea class="document" id="document" cols="104" style="display: none;"></textarea>
 		</div>
-	</div>
-	<template id="fileTemplate">
-		<div class="file">
-			<p class="file-name">{{name}}</p>
-			<p class="file-size">{{size}}</p>
-			<p class="file-datec">{{datec}}</p>
-			<p class="file-datem">{{datem}}</p>
-			<p class="file-id">{{id}}</p>
-			<button class="file-delete">Delete</button>
-		</div>
-	</template>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="script.js"></script>
+		<template id="fileTemplate">
+			<div class="file">
+				<p class="file-name">{{name}}</p>
+				<p class="file-size">{{size}}</p>
+				<p class="file-datec">{{datec}}</p>
+				<p class="file-datem">{{datem}}</p>
+				<p class="file-id">{{id}}</p>
+				<button class="file-delete">Delete</button>
+			</div>
+		</template>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="js/file-viewer.js"></script>
 
-</body></html>
+	</body>
+</html>

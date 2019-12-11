@@ -51,11 +51,8 @@ app.get('/default/:q', (req, res) => {
 	res.render(__dirname + '/public/includes/templates/window.ejs', { content: file, title: q });
 });
 
-http.listen(3000, () => console.log('server started'));
-
-io.engine.generateId = (req) => {
-	return randHex(6);
-};
+http.listen(3000, () => console.log('server started on 3000'));
+io.engine.generateId = (req) => {return randHex(6);};
 
 io.on('connection', (socket) => {
 	socket.on('register', (data) => {
@@ -73,11 +70,6 @@ function randHex(len) {
 	var letters = '0123456789abcdef';
 	var color = '';
 	for (var i = 0; i < len; i++) {
-		color += letters[Math.floor(Math.random() * 16)];
-	}
-	return color;
-}
-
-function copy(arr) {
-	return JSON.parse(JSON.stringify(arr));
-}
+		color += letters[Math.floor(Math.random() * 16)];}
+	return color;}
+function copy(arr) {return JSON.parse(JSON.stringify(arr));}
