@@ -5,10 +5,10 @@
 </div>
 <% for (let i in apps) { %>
 	<div class="taskbar-item">
-		<a href="/app/<%= apps[i] %>">
+		<a href="/app/<%= apps[i].name %>">
 			<img src="assets/icons/unknown.png">
 			<span>
-				<%= apps[i].charAt(0).toUpperCase() + apps[i].slice(1) %>
+				<%= apps[i].name.charAt(0).toUpperCase() + apps[i].name.slice(1) %>
 			</span>
 		</a>
 	</div>
