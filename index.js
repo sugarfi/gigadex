@@ -25,7 +25,7 @@ app.use((req, res, next) => { // defaults for ejs code
 	res.locals.message = null;
 	res.locals.apps = apps;
 	next();
-})
+});
 
 app.get('/', (req, res) => {
 	res.redirect('/app/home');
@@ -71,4 +71,4 @@ function randHex(len) {
 	for (var i = 0; i < len; i++) {
 		color += letters[Math.floor(Math.random() * 16)];}
 	return color;}
-function copy(arr) {return JSON.parse(JSON.stringify(arr));}
+function copy(arr) {return JSON.parse(JSON.stringify(arr));}});
