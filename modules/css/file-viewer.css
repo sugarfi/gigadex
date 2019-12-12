@@ -54,7 +54,7 @@ textarea:focus, input:focus {outline: none;}
 	color: white;
 	font-weight: 600;
 	font-size: 20px;
-	font-family: Lucida Grande, sans-serif;
+	font-family: "Lucida Grande", sans-serif;
 	cursor: pointer;
 	transition: 100ms ease-out;}
 .btn:active, .btn:hover {
