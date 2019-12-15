@@ -16,6 +16,7 @@ app.use(express.static('public'));
 app.set('view-engine', 'ejs');
 
 var apps = os.apps;
+console.log(apps);
 var tabs = [];
 
 app.use((req, res, next) => { // defaults for ejs code
