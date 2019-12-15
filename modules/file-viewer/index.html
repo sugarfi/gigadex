@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Browser Notebook</title>
+		<link href="css/file-viewer.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body style="cursor: initial;">
+		<style>
+				/* General Styling */
+				html, body, .site, .app {
+					margin: 0;
+					padding: 0;
+					width: 100vw;
+					height: 100vh;}
+				body {
+					background-color: #424242;
+					color: white;
+					font-family: Calibri, sans-serif;}
+				textarea {display: none;}
+				div, h1, p {
+					margin: 0;
+					padding: 0;}
+				a, a:visited {
+					color: #0000dd;
+					text-decoration: none;}
+				.site, .app {
+					display: flex;
+					flex-direction: column;}
+				
+				/* ----------Globals---------- */
+				textarea:focus, input:focus {outline: none;}
+				
+				/* ----------Top Bar---------- */
+				.alertBox {display: none !important;}
+				.titlebar {
+					margin: auto;
+					padding: 0.5% 1%;
+					width: 98%;
+					background-color: black;
+					text-align: center;
+					font-size: 16px;}
+				.title {
+					visibility: hidden;
+					margin-right: 6%;}
+				#name {
+					padding: 5px;
+					border: 1px solid black;}
+				.toolbar {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					padding: 0;
+					background-color: black;}
+				.btngroup {height: 100%;}
+				.btn {
+					float: left;
+					padding: 3px 10px;
+					outline: none;
+					border: none;
+					border-radius: 4px 4px 0 0;
+					background-color: black;
+					color: white;
+					font-weight: 600;
+					font-size: 20px;
+					font-family: "Lucida Grande", sans-serif;
+					cursor: pointer;
+					transition: 100ms ease-out;}
+				.btn:active, .btn:hover {
+					background-color: white;
+					color: black;}
+				.btn.filebtn:hover {color: blue;}
+				.btn.delete:hover {color: #e83e3e;}
+				.btn.transferbtn {
+					border: none;
+					border-left: 1px solid black;
+					color: #1e9cca;}
+				
+				/* ----------File Viewer---------- */
+				.editor {
+					display: flex;
+					flex-direction: row;
+					height: 92%;}
+				.editor-main {width: 100%;}
+				.fileList {
+					display: flex;
+					flex-direction: column;
+					margin: 10px auto;
+					width: 94%;
+					height: max-content;}
+				.fileList > p {
+					color: #ffffffdd;
+					text-align: center;
+					font-style: italic;}
+				.file, .list-header {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+				/*  border-top: 1px solid #cccccc22; */
+					padding: 10px;
+					width: 99%;}
+				.list-header {
+					border: none;
+					border-bottom: 1px solid #cccccc55;}
+				.file:first-of-type {border: none;}
+				.file > p, .file > button, .list-header > p {
+					flex: 1;
+					margin: auto 10px;}
+				.list-header > p {font-weight: 900;}
+				.list-items > p {
+					margin: 10px;
+					text-align: center;}
+				.file:hover {
+					border-radius: 6px;
+					background-color: #aaaaaa44;}
+				.file-name {
+					flex-basis: 28% !important;
+					max-width: 28%;
+					text-align: left;
+					overflow-wrap: break-word;}
+				.file-id {display: none;}
+				.file-delete {
+					margin: auto auto;
+					padding: 6px;
+					width: max-content;
+					outline: none;
+					border: none;
+					border-radius: 6px;
+					background-color: transparent;
+					color: rgb(255, 61, 61);
+					transition: 100ms ease-out;}
+				.file-delete:hover {
+					background-color: #e83e3e88;
+					color: rgb(255, 255, 255);}
+					
+				/* ----------Editor---------- */
+				.document {
+					display: none;
+					margin: 0 auto;
+					padding: 0.5%;
+					width: 70%;
+					height: 98%;
+					box-shadow: 0 0 6px 3px #0000007a;
+					font-size: 14px;}
+				.infobar {
+					display: none;
+					text-align: right;}
+				#saveState[data-main='false'] {
+					color: red;
+					font-weight: 600;}
+				#saveState[data-main='true'] {color: #00aa00;}
+				#author {width: 100%;}
+		</style>
+		<div class="app">
+			<div class="topbar">
+				<div class="titlebar">
+					<div class="title" style="visibility: hidden;">
+						Title:
+						<input type="text" id="name" autocomplete="off">
+					</div>
+				</div>
+				<div class="toolbar">
+					<div class="btngroup">
+						<button class="btn filebtn" id="new">New</button>
+						<button class="btn filebtn" id="open">Open</button>
+					</div>
+				</div>
+			</div>
+			<div class="editor">
+				<div class="fileList">
+					<div class="list-header">
+						<p class="file-name">Name</p>
+						<p>Size</p>
+						<p>Created</p>
+						<p>Modified</p>
+						<p></p>
+					</div>
+					<div class="list-items">
+						<div class="file">
+							<p class="file-name">Untitled</p>
+							<p class="file-size">0B</p>
+							<p class="file-datec">12/9/2019 10:18:53 PM</p>
+							<p class="file-datem">12/9/2019 10:18:53 PM</p>
+							<p class="file-id">smh0wecvgl</p>
+							<button class="file-delete">Delete</button>
+						</div>
+					</div>
+				</div>
+				<textarea class="document" id="document" cols="104"></textarea>
+			</div>
+		</div>
+		<template id="fileTemplate">
+			<div class="file">
+				<p class="file-name">{{name}}</p>
+				<p class="file-size">{{size}}</p>
+				<p class="file-datec">{{datec}}</p>
+				<p class="file-datem">{{datem}}</p>
+				<p class="file-id">{{id}}</p>
+				<button class="file-delete">Delete</button>
+			</div>
+		</template>
+		<script src="js/file-viewer.js"></script>
+		<script>
+			var files = [];
+			var current = 0;
+			const $ = require('jquery');
+			function loadFiles() {
+			    files = localStorage.getItem('files');
+			    if (files) {files = JSON.parse(files);}
+			        else {files = [];}
+			    updateList();}
+			function updateList() {
+			    let template = $('#fileTemplate').html();
+			    $('body').css('cursor', 'progress');
+			    $('.file').off('click');
+			    $('.file-delete').off('click');
+			    $('.list-items').html('');
+			    if (files.length === 0) {$('.list-items').append('<p>No Files</p>');}
+			    for (let i in files) {
+			        let hold = template;
+			        hold = hold.replace('{{name}}', files[i].name);
+			        hold = hold.replace('{{size}}', formatBytes(files[i].data.length));
+			        hold = hold.replace('{{datec}}', new Date(files[i].datec).toLocaleString().replace(', ', ' '));
+			        hold = hold.replace('{{datem}}', new Date(files[i].datem).toLocaleString().replace(', ', ' '));
+			        hold = hold.replace('{{id}}', files[i].id);
+			        $('.list-items').append(hold);}
+			    $('.file').on('click', function () {
+			        openFile($(this).index());
+			    });
+			    $('.file-delete').on('click', function (e) {
+			        deleteFile($(this).closest('.file').index());
+			        e.stopPropagation();
+			    });
+			    $('body').css('cursor', 'initial');}
+			function newFile() {
+			    current = files.length;
+			    files.push({
+			        name: 'Untitled',
+			        data: '',
+			        datec: new Date(),
+			        datem: new Date(),
+			        id: randID()
+			    });
+			    saveFiles();
+			    openFile(current);
+			    showEditor();}
+			function openFile(index) {
+			    $('body').css('cursor', 'progress');
+			    current = index;
+			    $('#name').val(files[index].name);
+			    $('#document').val(files[index].data);
+			    showEditor();
+			    $('body').css('cursor', 'initial');}
+			function saveFile(index) {
+			    files[index].data = $('#document').val();
+			    files[index].datem = new Date();
+			    saveFiles();}
+			function renameFile(index) {
+			    files[index].name = $('#name').val();
+			    saveFiles();}
+			function deleteFile(index) {
+			    if (confirm('Delete "' + files[index].name + '"?')) {
+			        current = -1;
+			        files.splice(index, 1);}
+			    updateList();
+			    saveFiles();}
+			function showEditor() {
+			    $('.fileList').hide();
+			    $('.document').css('display', 'block');
+			    $('.title').css('visibility', 'visible');}
+			function showList() {
+			    current = -1;
+			    updateList();
+			    $('.fileList').show();
+			    $('.document').hide();
+			    $('.title').css('visibility', 'hidden');
+			    $('.infobar').hide();}
+			function formatBytes(number) {
+			    if (number > 1000000) {return (number / 1000000).toFixed(1) + 'MB';}
+			        else if (number > 1000) {return (number / 1000).toFixed(1) + 'KB';}
+			        else {return number + 'B';}}
+			function randID() {return Math.random().toString(36).substr(2);}
+			function saveFiles() {localStorage.setItem('files', JSON.stringify(files));}
+			
+			$(document).ready(function () {
+				$('#name').on('change', function () {
+					renameFile(current);
+				});
+			
+				$('#new').on('click', function() {
+					newFile();
+				});
+			
+				$('#open').on('click', function () {
+					showList();
+				});
+			
+				$('#document').on('keyup', function () {
+					saveFile(current);
+				});
+			
+				$('#document').on('keydown', function (e) {
+					if (e.keyCode === 9) {
+						let start = this.selectionStart;
+						let end = this.selectionEnd;
+						let value = $(this).val();
+						$(this).val(value.substring(0, start) + "\t" + value.substring(end));
+						this.selectionStart = this.selectionEnd = start + 1;
+						e.preventDefault();}
+				});
+				loadFiles();
+				showList();
+			});
+		</script>
+	</body>
+</html>

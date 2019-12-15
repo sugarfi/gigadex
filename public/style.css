@@ -64,10 +64,15 @@ a, a:visited {
 
 .taskbar-item.taskbar-home {
 	/* margin-right: auto; */
+	order: -1;
 }
 
 .taskbar-item.taskbar-settings {
 	margin-left: auto;
+}
+
+.taskbar-item.taskbar-home span, .taskbar-item.taskbar-settings span {
+	display: none;
 }
 
 .taskbar-item > a {
@@ -175,6 +180,8 @@ input[type='submit'] {
 .main textarea {
 	width: 900px;
 	height: 500px;
+    resize: none;
+    outline: none;
 }
 #lastsaved {
 	position: absolute;

@@ -1,20 +1,17 @@
-<div class="taskbar-item taskbar-home">
-	<a href="/default/home">
-		<img src="assets/icons/home.png">
-	</a>
-</div>
 <% for (let i in apps) { %>
-	<div class="taskbar-item">
-		<a href="/app/<%= apps[i] %>">
-			<img src="assets/icons/unknown.png">
+	<% if (apps[i].name === 'home') { %>
+		<div class="taskbar-item taskbar-home">
+	<% } else if (apps[i].name === 'settings') { %>
+		<div class="taskbar-item taskbar-settings">
+	<% } else { %>
+		<div class="taskbar-item">
+	<% } %>
+		<a href="/app/<%= apps[i].name %>">
+			<!-- <img src="assets/icons/unknown.png"> -->
+			<img src="/icon/<%= apps[i].name %>">
 			<span>
-				<%= apps[i].charAt(0).toUpperCase() + apps[i].slice(1) %>
+				<%= apps[i].name.charAt(0).toUpperCase() + apps[i].name.slice(1) %>
 			</span>
 		</a>
 	</div>
 <% } %>
-<div class="taskbar-item taskbar-settings">
-	<a href="/default/settings">
-		<img src="assets/icons/gear.png">
-	</a>
-</div>
