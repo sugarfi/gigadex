@@ -1,0 +1,129 @@
+::selection{
+	background-color: black;
+	color: white;
+}
+.center{
+	position: absolute;
+	top: calc(50% + 2em);
+	left: 50%;
+	transform: translate(-50%,-50%);
+	margin-bottom: 1em;
+}
+#calendar{
+	height: auto;
+	width: 710px;
+	border: 1px solid black;
+	border-radius: 3px;
+	text-align: center;
+	padding: 20px;
+	user-select: none;
+}
+#weekDays{
+	text-align: center;
+	padding: 0;
+	margin: auto;
+	display: block;
+}
+#monthHolder{
+	background-color: black;
+	color: white;
+	padding: 1px;
+	margin: 0;
+	border-radius: 3px;
+}
+.day{
+	padding: 5px;
+	margin-left: 20px;
+	margin-right: 20px;
+	display: inline-block;
+	transition: 0.3s ease-in-out;
+	font-size: 20px;
+}
+.day:hover{
+	background-color: black;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#numbers{
+	overflow: scroll;
+	text-align: center;
+}
+table{
+	table-layout: fixed;
+}
+table, th, td {
+  	border: 1px solid black;
+  	border-collapse: collapse;
+}
+td{
+	width: 70px;
+	transition: 0.3s ease-in-out;
+	background-color: white;
+	color: black;
+	font-weight: 500;
+	cursor: pointer;
+}
+th, td {
+  	padding: 15px;
+}
+.event{
+	width: 60px;
+	height: 30px;
+	overflow: auto;
+	word-break: break-all;
+	font-weight: 300;
+	padding: 5px;
+	color: white;
+	background-color: black;
+	border-radius: 3px;
+	transition: 0.3s ease-in-out;
+}
+.event:hover{
+	color: black;
+	background-color: white;
+	transform: scale(1.4);
+}
+.active{
+	background-color: lightcoral;
+	color: white;
+}
+.active:hover{
+	background-color: lightcoral;
+	color: white;
+}
+#addEvents{
+	position: fixed;
+	background-color: white;
+	top: 50%;
+	left: 50%;
+	z-index: 10000;
+	transform: translate(-50%,-50%);
+	padding: 20px;
+	border: 2px solid black;
+	border-radius: 3px;
+	display: none;
+}
+#des{
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 3px;
+	border: 2px solid black;
+	background-color: white;
+	outline: none;
+}
+.eventsButton{
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 3px;	
+	border: 2px solid black;
+	background-color: white;
+	outline: none;	
+	transition: 0.3s ease-in-out;
+}
+.eventsButton:hover{
+	background-color: black;
+	color: white;
+}
