@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
-app.use(['/app/:q','/default/:q'], express.static('public'));
 app.set('view-engine', 'ejs');
 
 var apps = os.apps;
@@ -27,20 +26,32 @@ app.use((req, res, next) => { // defaults for ejs code
 	next();
 })
 
-app.get('/', (req, res) => {
-	res.redirect('/apps/home');
+app.get('/', (req, res) => { // 
+	res.redirect('/app/home');
 });
 
-app.get('/icon/:q', (req, res) => {
+app.get('/icon/:q', (req, res) => { // Path for taskbar icon
 	let q = req.params.q;
 	res.sendFile(__dirname + '/' + apps.find(el => el.name === q).getIcon());
 });
 
-app.get('/app/:q', (req, res) => {
+app.get('/app/:q', (req, res) => { // Main path for module
 	let q = req.params.q;
 	let file;
 	file = fs.readFileSync(`modules/${q}/index.html`, 'utf8');
 	res.render(__dirname + '/public/includes/templates/window.ejs', { content: file, title: q });
+});
+
+app.get('/app/:q/*', (req, res) => { // Static files for modules
+	let q = req.params.q;
+	let file = req.path.replace(`/app/${q}/`, '');
+	console.log(file);
+	let app = apps.find(el => el.name === q);
+	if (app) {
+		res.sendFile(`${__dirname}/modules/${app.name}/${file}`);
+	} else {
+		res.status(404).send('Not Found');
+	}
 });
 
 http.listen(3000, () => console.log('server started'));
