@@ -5,7 +5,7 @@ class App {
 		let self = this;
 		this.name = name;
 		this.getIcon = function () {
-			let match = fs.readdirSync('modules/' + self.name).find(el => el.match(/icon\.(jpeg|jpg|gif|png|apng|svg|bmp)/g));
+			let match = fs.readdirSync('modules/' + self.name).find(el => el.match(/icon\.(jpeg|jpg|gif|png|svg)/g));
 			if (match) {
 				return `modules/${self.name}/${match}`;
 			} else {
