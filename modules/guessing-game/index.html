@@ -1,33 +1,8 @@
 <div class="list">
-    <div class="list-item">
-      <h2>Guess The Number!</h2>
-      <p><span id="answer">Press enter to guess the number!</span></p>
-      <input id="guess" type="text" placeholder="Guess" />
-  
-      <script>
-        // Get random number
-        function gen() {return Math.floor(Math.random()*100)}
-        let number = gen();
-  
-        document.getElementById("guess").addEventListener("keypress", event => {
-          // Key pressed was enter
-          if(event.key == "Enter") {
-            // Get guess
-            let guess = document.getElementById("guess").value;
-  
-            // Guess was correct
-            if(guess == number) {
-              // Reset guess
-              document.getElementById("guess").value = "";
-              // Show user guess was correct
-              document.getElementById("answer").innerHTML = `The answer was ${guess}.`;
-              // Generate new number
-              number = gen();
-            }
-            // Guess was incorrect
-            else document.getElementById("answer").innerHTML = `The answer is not ${guess}.`;
-          }
-        });
-      </script>
-    </div>
-  </div>
+	<div class="list-item">
+		<h2>Guess The Number!</h2>
+		<p><span id="answer">Press enter to guess the number!</span></p>
+		<input id="guess" type="text" placeholder="Guess" />
+	</div>
+</div>
+<script src="script.js"></script>
