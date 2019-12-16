@@ -26,7 +26,7 @@ app.use((req, res, next) => { // defaults for ejs code
 	next();
 })
 
-app.get('/', (req, res) => { // 
+app.get('/', (req, res) => { // Redirect to home
 	res.redirect('/app/home');
 });
 
