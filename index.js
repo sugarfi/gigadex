@@ -28,10 +28,14 @@ app.use((req, res, next) => { // defaults for ejs code
 })
 
 app.get('/', (req, res) => {
+	res.render(__dirname + '/public/includes/templates/desktop.ejs');
+});
+
+app.get('/new', (req, res) => { //
 	res.redirect('/default/home');
 });
 
-app.get('/new', (req, res) => { // 
+app.get('/new', (req, res) => { //
 	ejs.renderFile(__dirname + '/public/views/new.ejs', { apps }, (err, str) => {
 		res.render(__dirname + '/public/includes/templates/window.ejs', { content: str });
 	});
