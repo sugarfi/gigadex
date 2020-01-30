@@ -1,0 +1,20 @@
+<div class="taskbar-item taskbar-home">
+	<a href="/default/home">
+		<img src="assets/icons/home.png">
+	</a>
+</div>
+<% for (let i in apps) { %>
+	<div class="taskbar-item">
+		<a href="/app/<%= apps[i] %>">
+			<img src="assets/icons/unknown.png">
+			<span>
+				<%= apps[i].charAt(0).toUpperCase() + apps[i].slice(1) %>
+			</span>
+		</a>
+	</div>
+<% } %>
+<div class="taskbar-item taskbar-settings">
+	<a href="default/settings">
+		<img src="assets/icons/gear.png">
+	</a>
+</div>
